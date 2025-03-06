@@ -142,7 +142,7 @@ section img#mountfront{
     border: 4px solid;
     border-color: transparent;
     font-size: 16px;
-    background-color: ;
+    background-color:#ffffff ;
     border-radius: 100px;
     font-weight: 600;
     color: #1f387e;
@@ -175,7 +175,7 @@ section img#mountfront{
     transform: translate(-50%, -50%);
     width: 20px;
     height: 20px;
-    background-color: #f4e1ff;
+    background-color: #bca7c9;
     border-radius: 50%;
     opacity: 0;
     transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
@@ -222,8 +222,3 @@ section img#mountfront{
   }
 
   
-
-
-  /* body::-webkit-scrollbar{
-    display: none;
-  } */
