@@ -7,17 +7,18 @@
   cursor: none;
 }
 
+/* Hide Scrollbar */
 body::-webkit-scrollbar {
   display: none;
 }
 
+/* Background Gradient */
 body {
   scroll-behavior: smooth;
   min-height: 100vh;
-  background: linear-gradient(#2b1055, #7597de);
+  background: linear-gradient(#2b1055, #3b2a82);
   overflow-x: hidden;
   cursor: none;
-
 }
 /* 
 .custom-cursor {
@@ -392,3 +393,373 @@ section img#mountfront {
 }
 
 /* End https://www.cursors-4u.com */
+
+/* From Uiverse.io by ilkhoeri */ 
+.terminal-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0 10%;
+}
+
+/* Left Terminal */
+.terminal-left {
+  height: 100%;
+  width: 80%;
+  padding: 1rem;
+  border: 1px solid rgba(197, 197, 197, 0.2);
+  border-radius: 12px;
+  background: rgba(43, 16, 85, 0.7);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Right Terminal */
+.terminal-right {
+  width: 400px;
+  padding: 1rem;
+  border: 1px solid rgba(197, 197, 197, 0.2);
+  border-radius: 12px;
+  background: rgba(43, 16, 85, 0.7);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Terminal Cards on Opposite Sides */
+.card {
+  width: 80%;
+  height: 100%;
+  padding: 1rem;
+  /* border: 1px solid rgba(197, 197, 197, 0.5); */
+  border-radius: 12px;
+  /* background: rgba(43, 16, 85, 0.8); */
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+  z-index: 9;
+  border: 0.5px solid rgba(82, 82, 82, 0.5);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.terminal {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  min-height: 50px;
+  padding-inline: 12px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  background-color: rgba(32, 36, 37, 0.85);
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 2.5rem;
+  user-select: none;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #b0b0b0;
+  font-size: 16px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  overflow-x: auto;
+  padding: 1rem;
+  line-height: 20px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.75);
+  white-space: nowrap;
+}
+
+
+/* Copy Button Styling */
+.copy_toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  border: 0.65px solid #c1c2c5;
+  margin-left: auto;
+  border-radius: 6px;
+  background-color: #202425;
+  color: #8e8e8e;
+  cursor: pointer;
+}
+
+.copy_toggle > svg {
+  width: 20px;
+  height: 20px;
+}
+
+.copy_toggle:active > svg > path,
+.copy_toggle:focus-within > svg > path {
+  animation: clipboard-check 500ms linear forwards;
+}
+
+/* Terminal Content Styling */
+.pre {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-wrap: nowrap;
+  white-space: pre;
+  background-color: transparent;
+  overflow: hidden;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.pre code:nth-child(1) {
+  color: #575757;
+}
+
+.pre code:nth-child(2) {
+  color: #e34ba9;
+}
+
+.cmd {
+  height: 19px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.cmd::before {
+  content: attr(data-cmd);
+  position: relative;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  background-color: transparent;
+  animation: inputs 8s steps(22) infinite;
+}
+
+.cmd::after {
+  content: "";
+  position: relative;
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  background-color: transparent;
+  border-right: 0.15em solid #e34ba9;
+  animation: cursor 0.5s step-end infinite alternate, blinking 0.5s infinite;
+}
+
+/* Cursor Animation */
+@keyframes blinking {
+  20%,
+  80% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0);
+  }
+}
+
+@keyframes cursor {
+  50% {
+    border-right-color: transparent;
+  }
+}
+
+@keyframes inputs {
+  0%, 100% {
+    width: 0;
+  }
+  10%, 90% {
+    width: 100%;
+  }
+}
+
+/* From Uiverse.io by Kemboi-Dun */ 
+.container {
+  width: 250px;
+  height: 250px;
+}
+
+.terminal_toolbar {
+  display: flex;
+  height: 30px;
+  align-items: center;
+  padding: 0 8px;
+  box-sizing: border-box;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background: #212121;
+  justify-content: space-between;
+}
+
+.butt {
+  display: flex;
+  align-items: center;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin-right: 5px;
+  font-size: 8px;
+  height: 12px;
+  width: 12px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 100%;
+  background: linear-gradient(#7d7871 0%, #595953 100%);
+  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 0px 1px 0px #41403A, 0px 1px 1px 0px #474642;
+}
+
+.btn-color {
+  background: #ee411a;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.butt--exit {
+  background: linear-gradient(#f37458 0%, #de4c12 100%);
+}
+
+.add_tab {
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 0 6px;
+  border-radius: 4px 4px 0 0;
+  border-bottom: none;
+  cursor: pointer;
+}
+
+.user {
+  color: #d5d0ce;
+  margin-left: 6px;
+  font-size: 14px;
+  line-height: 15px;
+}
+
+.terminal_body {
+  background: rgba(0, 0, 0, 0.6);
+  height: calc(100% - 30px);
+  padding-top: 2px;
+  margin-top: -1px;
+  font-size: 12px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.terminal_promt {
+  /* display: flex; */
+}
+
+.terminal_promt span {
+  margin-left: 4px;
+}
+
+.terminal_user {
+  color: #1eff8e;
+}
+
+.terminal_location {
+  color: #4878c0;
+}
+
+.terminal_bling {
+  color: #dddddd;
+}
+
+.terminal_cursor {
+  display: block;
+  height: 14px;
+  width: 5px;
+  margin-left: 10px;
+  animation: curbl 1200ms linear infinite;
+}
+
+@keyframes curbl {
+
+  0% {
+    background: #ffffff;
+  }
+
+  49% {
+    background: #ffffff;
+  }
+
+  60% {
+    background: transparent;
+  }
+
+  99% {
+    background: transparent;
+  }
+
+  100% {
+    background: #ffffff;
+  }
+}
+
+.cc {
+  display: flex;
+ 
+
+  color: #fff;
+  font-size: 12px;
+  background-color: #1C0522;
+  padding-top:3%;
+  padding-left: 8%;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.terminal-left, .terminal-right {
+  opacity: 0;
+  animation: fadeIn 1.5s ease-out forwards;
+}
+
+.ps-container {
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  max-height: 100%;
+  white-space: nowrap; 
+  overflow: hidden;
+}

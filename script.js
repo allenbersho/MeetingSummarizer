@@ -49,3 +49,28 @@ document.addEventListener("mousemove", (e) => {
     cursor.style.left = `${e.clientX}px`;
     cursor.style.top = `${e.clientY}px`;
   });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.from(".terminal-left", {
+      scrollTrigger: {
+        trigger: ".terminal-left",
+        start: "top 80%",
+        toggleActions: "play none none none"
+      },
+      opacity: 0,
+      x: -50,
+      duration: 1.2
+    });
+    
+    gsap.from(".terminal-right", {
+      scrollTrigger: {
+        trigger: ".terminal-right",
+        start: "top 80%",
+        toggleActions: "play none none none"
+      },
+      opacity: 0,
+      x: 50,
+      duration: 1.2
+    });
+  });
