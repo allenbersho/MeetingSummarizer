@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Summarizer</title>
+    <link rel="stylesheet" href="static/css/styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>AI Meeting Summarizer</h2>
+        
+        <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+            <label for="fileUpload" class="custom-file-upload">
+                Choose an Audio File
+                <input type="file" id="fileUpload" name="audio" accept="audio/*" required>
+            </label>
+            <button type="submit" class="upload-btn">Upload & Process</button>
+        </form>
+
+        <!-- Loader -->
+        <div class="loader" id="loader"></div>
+
+        {% if summary %}
+        <div class="output-box">
+            <h3>Final Summary:</h3>
+            <textarea readonly>{{ summary }}</textarea>
+        </div>
+        {% endif %}
+
+        {% if task_results %}
+        <div class="output-box">
+            <h3>Asana Task Results:</h3>
+            <ul>
+                {% for result in task_results %}
+                    <li>{{ result }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+
+    <script src="static/js/script.js"></script>
+</body>
+</html>
