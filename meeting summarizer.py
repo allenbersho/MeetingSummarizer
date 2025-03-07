@@ -61,12 +61,10 @@ def create_asana_task(task_name, assignee_name):
 
 @app.route("/", methods=["GET"])
 def index():
-    return render_template("front.html")
-
-
-@app.route("/page2")
-def page2():
     return render_template("index.html")
+
+
+
 
 @app.route("/upload", methods=["POST"])
 def upload_file():
